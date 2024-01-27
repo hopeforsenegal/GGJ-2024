@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
             rb.rotation = angle;
             moveDirection = direction;
         }
+     // if(Enemy)
     }
 
     private void FixedUpdate()
@@ -56,5 +57,16 @@ public class Enemy : MonoBehaviour
         {
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        var player = collision.gameObject.GetComponent<TopDownDude>();
+        if (player != null)
+        {
+
+            Debug.Log("Enemy Touched You");
+            
+        }
+
     }
 }
