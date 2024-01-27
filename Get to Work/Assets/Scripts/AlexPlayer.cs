@@ -5,8 +5,8 @@ using UnityEngine;
 public class AlexPlayer : MonoBehaviour
 {
     // Movement
-    float xRunSpeed = 0.02f;
-    float yRunSpeed = 0.01f;
+    float xRunSpeed = 0.04f;
+    float yRunSpeed = 0.04f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class AlexPlayer : MonoBehaviour
         // Check win condition
         if (transform.position.y < -20)
         {
-            Debug.Log("You made to work!");
+            //Debug.Log("You made to work!");
         }
     }
 
