@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c341cff297a41a1a49b961a2b88587, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  Menu: {fileID: 0}
+  Menu: {fileID: 8300000, guid: 2e79c4cc1e5ee460db3a8557898f55f3, type: 3}
   temp: 0
   skiPlayerSpeed: 0
   jumpPlayerSpeed: 0
