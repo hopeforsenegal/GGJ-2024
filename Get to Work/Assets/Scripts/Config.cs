@@ -10,6 +10,9 @@ public class Config : ScriptableObject
 
 
     [Header("UI")]
+    public float timePerIntro;
+    public Sprite[] IntroScreens;
+
     public Sprite LoseScreen;
     public Sprite WinScreen;
 

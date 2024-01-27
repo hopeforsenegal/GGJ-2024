@@ -14,6 +14,14 @@ public static class Actions
     public static bool TestWin => Input.GetKey(KeyCode.Alpha2);
 }
 
+public enum GameState
+{
+    Intro,
+    Game,
+    Lose,
+    Win
+}
+
 
 public class Game : MonoBehaviour
 {
@@ -21,10 +29,17 @@ public class Game : MonoBehaviour
     public Config config;
 
     [Header("UI")]
+    public Image introImage;
     public Image winLoseScreen;
+
+    private int currentIndex;
+    private float introTimer;
+    private GameState gameState;
 
     protected void Start()
     {
+        introImage.sprite = config.IntroScreens[currentIndex];
+        introTimer = config.timePerIntro;
         winLoseScreen.enabled = false;
     }
 
@@ -38,6 +53,20 @@ public class Game : MonoBehaviour
         if (Actions.TestWin) {
             winLoseScreen.enabled = true;
             winLoseScreen.sprite = config.WinScreen;
+        }
+
+        // Intro Screens
+        if (Input.anyKeyDown || (introTimer -= Time.deltaTime) <= 0) {
+            if (currentIndex < config.IntroScreens.Length - 1) {
+                introImage.sprite = config.IntroScreens[currentIndex + 1];
+            }
+
+            if (currentIndex == config.IntroScreens.Length - 1) {
+                gameState = GameState.Game;
+                introImage.enabled = false;
+            }
+            introTimer = config.timePerIntro;
+            currentIndex += 1;
         }
 
         // Player
