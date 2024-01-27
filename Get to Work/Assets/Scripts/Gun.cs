@@ -26,5 +26,15 @@ public class Gun : MonoBehaviour
             var bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawn.up * bulletSpeed;
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            var bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            bullet.GetComponent<Rigidbody2D>().velocity = -bulletSpawn.up * bulletSpeed;
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            var bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            bullet.GetComponent<Rigidbody2D>().velocity = -bulletSpawn.right * bulletSpeed;
+        }
     }
 }
