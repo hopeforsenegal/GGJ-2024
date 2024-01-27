@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
 {
     public Transform bulletSpawn;
     public GameObject bulletPrefab;
-    public float bulletSpeed = 10;
+    public float bulletSpeed = 20;
     // Start is called before the first frame update
     void Start()
     {

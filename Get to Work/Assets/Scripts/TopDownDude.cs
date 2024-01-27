@@ -49,10 +49,11 @@ public class TopDownDude : MonoBehaviour
         {
             
         }*/
+        
     }
     private void FixedUpdate()
     {
-        spriteRenderer.flipX = rb.velocity.x < 0f;
+        //spriteRenderer.flipX = rb.velocity.x < 0f;
 
     }
 
