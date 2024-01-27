@@ -5,8 +5,8 @@ using UnityEngine;
 public class AlexPlayer : MonoBehaviour
 {
     // Movement
-    float xRunSpeed = 0.04f;
-    float yRunSpeed = 0.04f;
+    float runSpeed = 0.04f;
+    Vector2 vel = new Vector2(0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +19,15 @@ public class AlexPlayer : MonoBehaviour
     {
         // Init input direction
         float dx = Input.GetAxis("Horizontal");
-        bool run = !Input.GetKey("space");
 
         // Update velocity
-        float vx = dx * xRunSpeed;
-        float vy = 0.0f;
-        if (run)
-        {
-            vy = -yRunSpeed;
-        }
+        vel.x = dx;
+        vel.y = -1;
+        vel.Normalize();
+        vel *= runSpeed;
 
         // Update position
-        transform.position = transform.position + new Vector3(vx,vy,0.0f);
+        transform.position = transform.position + new Vector3(vel.x,vel.y,0.0f);
 
         // Check win condition
         if (transform.position.y < -20)
