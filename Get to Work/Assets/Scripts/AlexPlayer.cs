@@ -9,6 +9,7 @@ public class AlexPlayer : MonoBehaviour
 
     // Objects
     public GameObject playerBody;
+    public GameObject playerShadow;
     
     // Movement
     float runSpeed = 0.04f;
