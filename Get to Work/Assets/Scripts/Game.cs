@@ -30,6 +30,7 @@ public class Game : MonoBehaviour
     public Config config;
 
     [Header("UI")]
+    public CanvasGroup dialougeCanvasGroup;
     public Image cutsceneImage;
     public Text cutsceneText;
     public Image winLoseScreen;
@@ -41,7 +42,10 @@ public class Game : MonoBehaviour
     protected void Start()
     {
         cutsceneImage.sprite = config.IntroRunningGame.screen;
+        cutsceneText.text = config.IntroRunningGame.dialouge[cutsceneIndex];
         cutsceneTimer = config.IntroRunningGame.timePerText;
+        dialougeCanvasGroup.alpha = 1;
+        dialougeCanvasGroup.blocksRaycasts = true;
         winLoseScreen.enabled = false;
     }
 
@@ -59,16 +63,18 @@ public class Game : MonoBehaviour
 
         // Intro Screens
         if (Input.anyKeyDown || (cutsceneTimer -= Time.deltaTime) <= 0) {
-            //if (cutsceneIndex < config.IntroRunningGame.Length - 1) {
-            //    introImage.sprite = config.IntroScreens[cutsceneIndex + 1];
-            //}
+            if (cutsceneIndex < config.IntroRunningGame.dialouge.Length - 1) {
+                cutsceneText.text = config.IntroRunningGame.dialouge[cutsceneIndex + 1];
+            }
 
-            //if (cutsceneIndex == config.IntroScreens.Length - 1) {
-            //    gameState = GameState.RunningGame;
-            //    introImage.enabled = false;
-            //}
-            //cutsceneTimer = config.timePerIntro;
-            //cutsceneIndex += 1;
+            if (cutsceneIndex == config.IntroRunningGame.dialouge.Length - 1) {
+                gameState = GameState.RunningGame;
+                cutsceneImage.enabled = false;
+                dialougeCanvasGroup.alpha = 0;
+                dialougeCanvasGroup.blocksRaycasts = false;
+            }
+            cutsceneTimer = config.IntroRunningGame.timePerText;
+            cutsceneIndex += 1;
         }
 
         // Player

@@ -15,10 +15,12 @@ MonoBehaviour:
   Menu: {fileID: 8300000, guid: 2e79c4cc1e5ee460db3a8557898f55f3, type: 3}
   Lose: {fileID: 0}
   Win: {fileID: 0}
-  timePerIntro: 5
-  IntroScreens:
-  - {fileID: 21300000, guid: c8a69ecdf54ac8e4b873466605de27ff, type: 3}
-  - {fileID: 21300000, guid: cdb88fdb0cf46b244a667edaff21c7df, type: 3}
+  IntroRunningGame:
+    screen: {fileID: 21300000, guid: bc9b8d366805f4ae292b6c0f0af76569, type: 3}
+    timePerText: 5
+    dialouge:
+    - Holy crap. Not again!
+    - This car isn't working! Guess I gotta run to work!
   LoseScreen: {fileID: 21300000, guid: ef3c74fe4339e4143b6b2a3a5c365b3b, type: 3}
   WinScreen: {fileID: 21300000, guid: 372d067e451694378a490e831778940e, type: 3}
   temp: 0
