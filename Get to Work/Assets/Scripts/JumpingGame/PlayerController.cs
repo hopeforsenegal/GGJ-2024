@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace JumpingGame
 {
@@ -8,6 +9,12 @@ namespace JumpingGame
     {
         public float JumpForce;
         public float ChargeMultiplier;
+        public float MaxCharge = 100;
+
+        [Header("Sprites")]
+        public Sprite Idle;
+        public Sprite Jumping;
+        public Sprite Win;
 
         private bool facingRight = true;
 
@@ -16,11 +23,15 @@ namespace JumpingGame
 
         private Rigidbody2D rb;
         private SpriteRenderer sr;
+        private Slider slider;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             sr = GetComponent<SpriteRenderer>();
+            slider = GetComponentInChildren<Slider>();
+
+            slider.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -38,14 +49,30 @@ namespace JumpingGame
             
         }
 
+        public void StopMovement()
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            sr.sprite = Idle;
+        }
+
+        public void BounceHorizontal()
+        {
+            rb.velocity = new Vector2(rb.velocity.x * -1, rb.velocity.y);
+        }
+
+        public void Victory()
+        {
+            sr.sprite = Win;
+        }
+
         private void HandleDirection()
         {
-            if (!facingRight && Input.GetKeyDown(KeyCode.RightArrow))
+            if (!facingRight && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)))
             {
                 facingRight = true;
                 sr.flipX = false;
             }
-            else if (facingRight && Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (facingRight && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)))
             {
                 facingRight = false;
                 sr.flipX = true;
@@ -57,12 +84,18 @@ namespace JumpingGame
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 holdingJump = true;
+                slider.gameObject.SetActive(true);
+                slider.maxValue = MaxCharge;
+            
                 Debug.Log("Jump Start");
             }
 
             if (holdingJump)
             {
                 jumpTimer += Time.deltaTime;
+                if (jumpTimer > MaxCharge)
+                    jumpTimer = MaxCharge;
+                slider.value = jumpTimer;
             }
 
             if (Input.GetKeyUp(KeyCode.Space))
@@ -79,6 +112,8 @@ namespace JumpingGame
                 holdingJump = false;
                 rb.AddForceAtPosition(direction * JumpForce * jumpTimer, transform.position);
                 jumpTimer = 0;
+                slider.gameObject.SetActive(false);
+                sr.sprite = Jumping;
             }
         }
     }

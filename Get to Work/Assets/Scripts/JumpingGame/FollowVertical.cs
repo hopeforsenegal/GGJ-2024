@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowVertical : MonoBehaviour
+namespace JumpingGame
 {
-    public GameObject Target;
-    public float Offset;
-
-    private void Update()
+    public class FollowVertical : MonoBehaviour
     {
-        transform.position = new Vector3(
-            transform.position.x,
-            Target.transform.position.y + Offset,
-            transform.position.z);
+        public GameObject Target;
+        public float Offset;
+
+        private void Update()
+        {
+            transform.position = new Vector3(
+                transform.position.x,
+                Target.transform.position.y + Offset,
+                transform.position.z);
+        }
     }
 }
