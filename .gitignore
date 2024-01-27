@@ -77,3 +77,6 @@ Get to Work/Packages/packages-lock.json
 Get to Work/UserSettings/EditorUserSettings.asset
 Get to Work/Temp/workerlic
 Get to Work/Temp/UnityLockfile
+
+.DS_Store
+Get to Work/.DS_Store
