@@ -3,14 +3,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Config : ScriptableObject
 {
-    // Ski Player
+    [Header("Ski player")]
     public float skiPlayerSpeed;
 
-    // Jump Player
+
+    [Header("Jump player")]
+    public float jumpPlayerSpeed;
 
 
-    // Shooter Player
-
-
-
+    [Header("Shooter player")]
+    public float shooterPlayerSpeed;
 }
