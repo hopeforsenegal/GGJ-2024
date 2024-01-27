@@ -4,7 +4,15 @@ using UnityEngine;
 public class Config : ScriptableObject
 {
     [Header("Audio")]
-    public AudioClip Menu;  
+    public AudioClip Menu;
+    public AudioClip Lose;
+    public AudioClip Win;
+
+
+    [Header("UI")]
+    public Sprite LoseScreen;
+    public Sprite WinScreen;
+
 
     [Header("Player")]
     public bool temp;
@@ -12,13 +20,12 @@ public class Config : ScriptableObject
     [Header("Player/Ski")]
     public float skiPlayerSpeed;
 
-
     [Header("Player/Jump")]
     public float jumpPlayerSpeed;
 
-
     [Header("Player/Shooter")]
     public float shooterPlayerSpeed;
+
 
     [Header("Levels")]
     public string firstLevel;
