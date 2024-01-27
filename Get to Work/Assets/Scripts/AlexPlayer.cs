@@ -24,18 +24,33 @@ public class AlexPlayer : MonoBehaviour
     int wipeoutDuration = 180;
     int wipeoutTimer = 180;
 
+    // Sprites
+    public SpriteRenderer playerBodyRenderer;
+    public Sprite[] runSprites;
+    public Sprite[] jumpSprites;
+    public Sprite[] wipeoutAirSprites;
+    public Sprite[] wipeoutGroundSprites;
+    float animCounter = 0.0f;
+    float animSpeed = 0.01f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Update animation
+        animCounter += animSpeed;
+
         // Run state
         if (state == 0)
         {
+            // Run animation
+            playerBodyRenderer.sprite = runSprites[(int)animCounter % 2];
+
             // Init input direction
             dx = Input.GetAxis("Horizontal");
 
@@ -58,6 +73,9 @@ public class AlexPlayer : MonoBehaviour
         // Jump
         else if (state == 1)
         {
+            // Jump animation
+            playerBodyRenderer.sprite = jumpSprites[(int)animCounter % 2];
+
             // Init input direction
             dx = Input.GetAxis("Horizontal");
 
@@ -82,6 +100,9 @@ public class AlexPlayer : MonoBehaviour
         // Wipeout Air
         else if (state == 2)
         {
+            // Wipeout Air animation
+            playerBodyRenderer.sprite = wipeoutAirSprites[(int)animCounter % 2];
+
             // Update velocity
             vel.x = dx;
             vel.y = -1;
@@ -106,6 +127,9 @@ public class AlexPlayer : MonoBehaviour
         // Wipeout Ground
         else if (state == 3)
         {
+            // Wipeout Air animation
+            playerBodyRenderer.sprite = wipeoutGroundSprites[(int)animCounter % 1];
+
             // Decrement wipeout timer
             wipeoutTimer--;
             if (wipeoutTimer <= 0)

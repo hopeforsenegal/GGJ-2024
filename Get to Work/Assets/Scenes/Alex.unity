@@ -194,7 +194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ff1eef327c41a3b418c33515274907f8, type: 3}
+  m_Sprite: {fileID: -3220866925559446012, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -578,6 +578,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 567729004}
+  playerBodyRenderer: {fileID: 567729006}
+  runSprites:
+  - {fileID: -8038236198308931415, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  - {fileID: 1116750201681724596, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  jumpSprites:
+  - {fileID: 8355713536840646678, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  - {fileID: -2587227145103355632, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  wipeoutAirSprites:
+  - {fileID: -4069926751164244171, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  - {fileID: -4408346614120524715, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  wipeoutGroundSprites:
+  - {fileID: 7159255433823473184, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
 --- !u!61 &1381054825
 BoxCollider2D:
   m_ObjectHideFlags: 0
