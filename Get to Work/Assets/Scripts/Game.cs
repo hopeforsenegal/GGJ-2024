@@ -16,7 +16,9 @@ public static class Actions
 public enum GameState
 {
     Intro,
-    Game,
+    RunningGame,
+    JumpingGame,
+    ShootingGame,
     Lose,
     Win
 }
@@ -61,7 +63,7 @@ public class Game : MonoBehaviour
             }
 
             if (currentIndex == config.IntroScreens.Length - 1) {
-                gameState = GameState.Game;
+                gameState = GameState.RunningGame;
                 introImage.enabled = false;
             }
             introTimer = config.timePerIntro;
