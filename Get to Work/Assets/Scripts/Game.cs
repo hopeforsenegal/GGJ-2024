@@ -30,17 +30,18 @@ public class Game : MonoBehaviour
     public Config config;
 
     [Header("UI")]
-    public Image introImage;
+    public Image cutsceneImage;
+    public Text cutsceneText;
     public Image winLoseScreen;
 
-    private int currentIndex;
-    private float introTimer;
+    private int cutsceneIndex;
+    private float cutsceneTimer;
     private GameState gameState;
 
     protected void Start()
     {
-        introImage.sprite = config.IntroScreens[currentIndex];
-        introTimer = config.timePerIntro;
+        cutsceneImage.sprite = config.IntroRunningGame.screen;
+        cutsceneTimer = config.IntroRunningGame.timePerText;
         winLoseScreen.enabled = false;
     }
 
@@ -57,17 +58,17 @@ public class Game : MonoBehaviour
         }
 
         // Intro Screens
-        if (Input.anyKeyDown || (introTimer -= Time.deltaTime) <= 0) {
-            if (currentIndex < config.IntroScreens.Length - 1) {
-                introImage.sprite = config.IntroScreens[currentIndex + 1];
-            }
+        if (Input.anyKeyDown || (cutsceneTimer -= Time.deltaTime) <= 0) {
+            //if (cutsceneIndex < config.IntroRunningGame.Length - 1) {
+            //    introImage.sprite = config.IntroScreens[cutsceneIndex + 1];
+            //}
 
-            if (currentIndex == config.IntroScreens.Length - 1) {
-                gameState = GameState.RunningGame;
-                introImage.enabled = false;
-            }
-            introTimer = config.timePerIntro;
-            currentIndex += 1;
+            //if (cutsceneIndex == config.IntroScreens.Length - 1) {
+            //    gameState = GameState.RunningGame;
+            //    introImage.enabled = false;
+            //}
+            //cutsceneTimer = config.timePerIntro;
+            //cutsceneIndex += 1;
         }
 
         // Player

@@ -1,5 +1,12 @@
 using UnityEngine;
 
+public struct CutScene
+{
+    public Sprite screen;
+    public float timePerText;
+    public string[] dialouge;
+}
+
 [CreateAssetMenu]
 public class Config : ScriptableObject
 {
@@ -10,8 +17,7 @@ public class Config : ScriptableObject
 
 
     [Header("UI")]
-    public float timePerIntro;
-    public Sprite[] IntroScreens;
+    public CutScene IntroRunningGame;
 
     public Sprite LoseScreen;
     public Sprite WinScreen;
