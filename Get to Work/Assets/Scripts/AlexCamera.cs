@@ -23,9 +23,12 @@ public class AlexCamera : MonoBehaviour
         timer += 1;
         if (timer % 60 == 0)
         {
-            float x = transform.position.x + Random.Range(-10f,10f);
-            float y = transform.position.y - 10f;
-            Instantiate(bush, new Vector3(x,y,0),Quaternion.identity);
+            for (int i = 0; i < 2; i++)
+            {
+                float x = transform.position.x + Random.Range(-20f, 20f);
+                float y = transform.position.y - 10f;
+                Instantiate(bush, new Vector3(x, y, 0), Quaternion.identity);
+            }
         }
     }
 
