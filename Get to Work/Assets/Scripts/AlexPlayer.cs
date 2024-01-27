@@ -31,6 +31,12 @@ public class AlexPlayer : MonoBehaviour
 
         // Update position
         transform.position = transform.position + new Vector3(vx,vy,0.0f);
+
+        // Check win condition
+        if (transform.position.y < -20)
+        {
+            Debug.Log("You made to work!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

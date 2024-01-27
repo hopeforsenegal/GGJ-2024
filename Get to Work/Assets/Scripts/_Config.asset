@@ -25,4 +25,4 @@ MonoBehaviour:
   skiPlayerSpeed: 0
   jumpPlayerSpeed: 0
   shooterPlayerSpeed: 8.97
-  firstLevel: Game
+  firstLevel: __Game
