@@ -5,7 +5,7 @@ using UnityEngine;
 public class AlexPlayer : MonoBehaviour
 {
     // Movement
-    float xRunSpeed = 0.01f;
+    float xRunSpeed = 0.02f;
     float yRunSpeed = 0.01f;
 
     // Start is called before the first frame update
@@ -31,5 +31,19 @@ public class AlexPlayer : MonoBehaviour
 
         // Update position
         transform.position = transform.position + new Vector3(vx,vy,0.0f);
+
+        // Check win condition
+        if (transform.position.y < -20)
+        {
+            Debug.Log("You made to work!");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("Obstacle hit!");
+        }
     }
 }
