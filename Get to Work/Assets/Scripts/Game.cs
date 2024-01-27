@@ -4,8 +4,7 @@ using UnityEngine.UI;
 // We could populate these actions from the Config if we really wanted to
 public static class Actions
 {
-    public static bool Left => Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-    public static bool Right => Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+    public static (float, float) Movement => (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
     public static bool Shoot => Input.GetKeyDown(KeyCode.Space);
 
