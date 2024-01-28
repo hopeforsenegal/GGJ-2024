@@ -94,7 +94,6 @@ public class AlexCamera : MonoBehaviour
         actorSpawnTimer += 1;
         if (!levelComplete && (int)actorSpawnTimer % actorSpawnFreq == 0)
         {
-            Debug.Log("Spawn!");
             int spawnCount = Random.Range(minActorSpawnCount, maxActorSpawnCount);
             for (int i = 0; i < spawnCount; i++)
             {
