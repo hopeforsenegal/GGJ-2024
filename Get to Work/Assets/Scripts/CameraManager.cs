@@ -20,6 +20,15 @@ public class CameraManager : MonoBehaviour
     public GameObject spawn1;
     public GameObject spawn2;
     public Camera camera;
+    private Enemy[] allEnemies;
+    private Door[] allDoors;
+
+    private void Start()
+    {
+        allEnemies = FindObjectsOfType<Enemy>(true);
+        allDoors = FindObjectsOfType<Door>(true);
+
+    }
 
     void Update()
     {
@@ -33,6 +42,28 @@ public class CameraManager : MonoBehaviour
         {
             MoveCamera(camera, vantage1.transform);
         }
+        var atLeastOneEnabled = false;
+        foreach (var enemy in allEnemies)
+        {
+            if (enemy != null && enemy.enabled == true)
+            {
+                atLeastOneEnabled = true;
+                foreach (var door in allDoors)
+                {
+                    door.enabled = false; 
+                }
+                break;
+            }
+            
+        }
+        if (atLeastOneEnabled == false)
+        {
+            foreach (var door in allDoors)
+            {
+                door.enabled = true;
+            }
+        }
+
     }
 
     public static void MoveCamera(Camera c, Transform vantage)
@@ -61,7 +92,11 @@ public class CameraManager : MonoBehaviour
                     var enemies = dV.enemies;
                     foreach (var enemy in enemies)
                     {
-                        enemy.enabled = true;
+                        if (enemy != null)
+                        {
+                            enemy.enabled = true;
+                        }
+
                     }
                     CameraManager.MoveCamera(camera, dV.vantage.transform);
                     CameraManager.MovePlayer(player, dV.spawn.transform);

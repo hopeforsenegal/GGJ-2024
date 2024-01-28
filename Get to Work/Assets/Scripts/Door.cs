@@ -14,6 +14,10 @@ public class Door: MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if(enabled == false)
+        {
+            return;
+        }
         var player = collision.gameObject.GetComponent<TopDownDude>();
         manager.OnPlayerDoorCollision(player,this);
 
