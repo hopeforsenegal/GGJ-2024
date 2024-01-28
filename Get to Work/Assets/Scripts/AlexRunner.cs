@@ -13,7 +13,7 @@ public class AlexRunner : MonoBehaviour
     public GameObject playerShadow;
 
     // Movement
-    float runSpeed = 0.04f;
+    public float runSpeed = 0.04f;
     Vector2 vel = new Vector2(0, 0);
     public float dx = 0;
     public bool jumpPressed = false;
@@ -36,17 +36,6 @@ public class AlexRunner : MonoBehaviour
     float animCounter = 0.0f;
     float animSpeed = 0.01f;
 
-    // Brain
-    public AlexPlayer brain;
-
-    // Update inputs
-    void updateInputs()
-    {
-        brain.updateInputs();
-        //dx = Input.GetAxis("Horizontal");
-        //jumpPressed = Input.GetKeyDown("space");
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -65,9 +54,6 @@ public class AlexRunner : MonoBehaviour
             // Run animation
             playerBodyRenderer.sprite = runSprites[(int)animCounter % 2];
 
-            // Inputs
-            updateInputs();
-
             // Jump
             if (jumpPressed)
             {
@@ -78,17 +64,17 @@ public class AlexRunner : MonoBehaviour
                 yAirVel = jumpStren;
             }
 
-            // Init input direction
-            dx = Input.GetAxis("Horizontal");
-
             // Jump
-            if (Input.GetKeyDown("space"))
+            if (jumpPressed)
             {
                 // Enter jump state
                 state = 1;
 
                 // Set jump velocity
                 yAirVel = jumpStren;
+
+                // Reset jump pressed
+                jumpPressed = false;
             }
 
             // Update velocity
@@ -102,9 +88,6 @@ public class AlexRunner : MonoBehaviour
         {
             // Jump animation
             playerBodyRenderer.sprite = jumpSprites[(int)animCounter % 2];
-
-            // Init input direction
-            dx = Input.GetAxis("Horizontal");
 
             // Update velocity
             vel.x = dx;
@@ -129,12 +112,6 @@ public class AlexRunner : MonoBehaviour
         {
             // Wipeout Air animation
             playerBodyRenderer.sprite = wipeoutAirSprites[(int)animCounter % 2];
-
-            // Update velocity
-            vel.x = dx;
-            vel.y = -1;
-            vel.Normalize();
-            vel *= runSpeed;
 
             // Jump velocity
             yAirVel -= gravStren;

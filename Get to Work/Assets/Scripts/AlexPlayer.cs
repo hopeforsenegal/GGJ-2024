@@ -8,16 +8,13 @@ public class AlexPlayer : MonoBehaviour
     public Config config;
     public AlexRunner runner;
 
-    // Update inputs
-    public void updateInputs()
-    {
-        runner.dx = Input.GetAxis("Horizontal");
-        runner.jumpPressed = Input.GetKeyDown("space");
-    }
-
     // Update is called once per frame
     void Update()
     {
+        // Update inputs
+        runner.dx = Input.GetAxis("Horizontal");
+        runner.jumpPressed = Input.GetKeyDown("space");
+
         // Check win condition
         if (transform.position.y < -50)
         {

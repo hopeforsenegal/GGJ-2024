@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2001736904575112424, guid: 8760dc8d30abd416f86fb18843400396, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2001736904575112424, guid: 8760dc8d30abd416f86fb18843400396, type: 3}
       propertyPath: m_LocalPosition.x
@@ -456,6 +456,7 @@ MonoBehaviour:
   - {fileID: 7466739622815621404, guid: 93cb921850ade594d8c8a4747a121281, type: 3}
   - {fileID: 7466739622815621404, guid: bcdbbe083d6258941838a4c079d2e9e0, type: 3}
   - {fileID: 7466739622815621404, guid: af917377f60255d4ab63d57ca8ff983f, type: 3}
+  - {fileID: 8592762822900698130, guid: fd5d3c51ac46c044393456fa0c144bb0, type: 3}
 --- !u!1 &1004376939
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 2770b26fec3454b1985ebac92fd2bcd3, type: 2}
-  runner: {fileID: 1381054821}
+  runner: {fileID: 1381054822}
 --- !u!1 &1381054821
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 567729004}
   playerShadow: {fileID: 1478613001}
+  runSpeed: 0.04
   dx: 0
   jumpPressed: 0
   playerBodyRenderer: {fileID: 567729006}
@@ -630,7 +632,6 @@ MonoBehaviour:
   - {fileID: -4408346614120524715, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
   wipeoutGroundSprites:
   - {fileID: 7159255433823473184, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
-  brain: {fileID: 1015532192}
 --- !u!4 &1381054823
 Transform:
   m_ObjectHideFlags: 0
@@ -648,7 +649,7 @@ Transform:
   - {fileID: 567729005}
   - {fileID: 1478613002}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1381054825
 BoxCollider2D:
