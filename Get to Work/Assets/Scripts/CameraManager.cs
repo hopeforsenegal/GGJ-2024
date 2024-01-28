@@ -17,8 +17,11 @@ public class CameraManager : MonoBehaviour
     public DoorToVantage[] doorToVantage;
     public GameObject vantage1;
     public GameObject vantage2;
+    public GameObject vantage3;
     public GameObject spawn1;
     public GameObject spawn2;
+    public GameObject spawn3;
+    public GameObject spawn4;
     public Camera camera;
     private Enemy[] allEnemies;
     private Door[] allDoors;
