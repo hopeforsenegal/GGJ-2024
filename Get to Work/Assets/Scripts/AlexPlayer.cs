@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AlexPlayer : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class AlexPlayer : MonoBehaviour
 
     // Sprites
     public SpriteRenderer playerBodyRenderer;
+    public RawImage bgImage;
     public Sprite[] runSprites;
     public Sprite[] jumpSprites;
     public Sprite[] wipeoutAirSprites;
