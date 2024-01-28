@@ -23,6 +23,7 @@ MonoBehaviour:
   RunLandSFX: {fileID: 8300000, guid: b9045a2d528f73a45953943faf5c979a, type: 3}
   RunTripSFX: {fileID: 8300000, guid: 5e1b92e4a1189fb49a7356e0ce09983c, type: 3}
   JumpSFX: {fileID: 8300000, guid: d7902ae397d6045dda5b10c8aa918634, type: 3}
+  DeathSFX: {fileID: 8300000, guid: 85714841c39444d848019c255f73918a, type: 3}
   RunningGame:
     screen: {fileID: 21300000, guid: bc9b8d366805f4ae292b6c0f0af76569, type: 3}
     timePerText: 5

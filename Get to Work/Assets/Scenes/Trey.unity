@@ -4193,10 +4193,12 @@ MonoBehaviour:
     - {fileID: 1956917433}
     - {fileID: 1539657521}
     - {fileID: 1980639701}
+    isFinalExit: 0
   - door: {fileID: 1198047142}
     vantage: {fileID: 901512725}
     spawn: {fileID: 1732254002}
     enemies: []
+    isFinalExit: 0
   - door: {fileID: 1989843163}
     vantage: {fileID: 23402480}
     spawn: {fileID: 1016470380}
@@ -4204,18 +4206,27 @@ MonoBehaviour:
     - {fileID: 374281108}
     - {fileID: 333730277}
     - {fileID: 1395865435}
+    isFinalExit: 0
   - door: {fileID: 99113973}
     vantage: {fileID: 735383096}
     spawn: {fileID: 289882585}
     enemies: []
+    isFinalExit: 0
   - door: {fileID: 862974327}
     vantage: {fileID: 309970003}
     spawn: {fileID: 1564454850}
     enemies: []
+    isFinalExit: 0
   - door: {fileID: 705358070}
     vantage: {fileID: 23402480}
     spawn: {fileID: 1141400885}
     enemies: []
+    isFinalExit: 0
+  - door: {fileID: 1985048559}
+    vantage: {fileID: 0}
+    spawn: {fileID: 0}
+    enemies: []
+    isFinalExit: 1
   vantage1: {fileID: 901512725}
   vantage2: {fileID: 735383096}
   vantage3: {fileID: 23402480}

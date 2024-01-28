@@ -109,4 +109,10 @@ public class GameAlwaysAlive : MonoBehaviour
         currentState = gameState;
         SceneManager.LoadScene(scene);
     }
+
+    internal void PlayDeath()
+    {
+        sfx.clip = config.DeathSFX;
+        sfx.Play();
+    }
 }
