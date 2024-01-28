@@ -52,6 +52,7 @@ public class GameAlwaysAlive : MonoBehaviour
         if (Actions.Quit) {
             TransitionTo(GameState.MainMenu);
         }
+#if UNITY_EDITOR
         if (Actions.TestWin) {
             var newState = currentState switch
             {
@@ -62,6 +63,7 @@ public class GameAlwaysAlive : MonoBehaviour
             };
             TransitionTo(newState);
         }
+#endif
     }
 
     public void TransitionTo(GameState gameState)
