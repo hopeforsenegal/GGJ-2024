@@ -31,6 +31,7 @@ public class AlexRunner : MonoBehaviour
     // Sprites
     public SpriteRenderer playerBodyRenderer;
     public Sprite[] runSprites;
+    public Sprite[] strafeRunSprites;
     public Sprite[] jumpSprites;
     public Sprite[] wipeoutAirSprites;
     public Sprite[] wipeoutGroundSprites;
@@ -53,7 +54,15 @@ public class AlexRunner : MonoBehaviour
         if (state == 0)
         {
             // Run animation
-            playerBodyRenderer.sprite = runSprites[(int)animCounter % 2];
+            if (dx != 0)
+            {
+                playerBodyRenderer.sprite = strafeRunSprites[(int)animCounter % 2];
+
+                // Flip
+                if (dx < 0) playerBodyRenderer.flipX = true;
+                else playerBodyRenderer.flipX = false;
+            }
+            else playerBodyRenderer.sprite = runSprites[(int)animCounter % 2];
 
             // Jump
             if (jumpPressed)

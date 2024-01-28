@@ -269,6 +269,9 @@ MonoBehaviour:
   runSprites:
   - {fileID: -741804162307110367, guid: 896adb498af504a1395efde73a3c01ed, type: 3}
   - {fileID: -530147271061985655, guid: 896adb498af504a1395efde73a3c01ed, type: 3}
+  strafeRunSprites:
+  - {fileID: 3317996470003491799, guid: 896adb498af504a1395efde73a3c01ed, type: 3}
+  - {fileID: -622164448323658104, guid: 896adb498af504a1395efde73a3c01ed, type: 3}
   jumpSprites:
   - {fileID: 4086602404848236492, guid: 896adb498af504a1395efde73a3c01ed, type: 3}
   - {fileID: -6885852080264449700, guid: 896adb498af504a1395efde73a3c01ed, type: 3}

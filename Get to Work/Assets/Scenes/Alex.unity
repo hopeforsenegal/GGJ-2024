@@ -623,10 +623,15 @@ MonoBehaviour:
   runSpeed: 0.04
   dx: 0
   jumpPressed: 0
+  gravStren: 0.0005
+  jumpStren: 0.06
   playerBodyRenderer: {fileID: 567729006}
   runSprites:
   - {fileID: -8038236198308931415, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
   - {fileID: 1116750201681724596, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  strafeRunSprites:
+  - {fileID: -7698605076525762790, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
+  - {fileID: 3906119921382731586, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
   jumpSprites:
   - {fileID: -2587227145103355632, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
   - {fileID: 8683196871581290890, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
