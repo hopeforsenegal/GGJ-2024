@@ -33,10 +33,12 @@ MonoBehaviour:
     - ... And the damn STAIRS!???
     levelToLoad: Nathan
   ShootingGame:
-    screen: {fileID: 0}
-    timePerText: 0
-    dialouge: []
-    levelToLoad: 
+    screen: {fileID: 7818894875247773144, guid: 48d8e7f35d0da403f87af3a9ac8ef187, type: 3}
+    timePerText: 6
+    dialouge:
+    - Finish this cut scene!
+    - Finish this cut scene!
+    levelToLoad: Trey
   WinScreen: {fileID: 21300000, guid: 372d067e451694378a490e831778940e, type: 3}
   temp: 0
   skiPlayerSpeed: 0
