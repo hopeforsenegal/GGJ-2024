@@ -28,14 +28,12 @@ namespace JumpingGame
         private Rigidbody2D rb;
         private SpriteRenderer sr;
         private Slider slider;
-        private AudioSource audioSource;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             sr = GetComponent<SpriteRenderer>();
             slider = GetComponentInChildren<Slider>();
-            audioSource = GetComponent<AudioSource>();
 
             slider.gameObject.SetActive(false);
         }
@@ -113,7 +111,9 @@ namespace JumpingGame
 
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                audioSource.Play();
+                GameAlwaysAlive.Instance.sfx.clip = config.JumpSFX;
+                GameAlwaysAlive.Instance.sfx.Play();
+
                 Vector2 direction;
                 if (facingRight)
                     direction = new Vector2(0.4f, 1f);
