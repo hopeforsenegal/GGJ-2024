@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -19,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
         play.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(config.firstLevel);
+            GameAlwaysAlive.TransitionTo(GameState.IntroRunningGame, config);
         });
         quit.onClick.AddListener(() =>
         {
