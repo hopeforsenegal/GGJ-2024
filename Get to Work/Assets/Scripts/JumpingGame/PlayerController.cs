@@ -7,6 +7,8 @@ namespace JumpingGame
 {
     public class PlayerController : MonoBehaviour
     {
+        public Config config;
+
         public float JumpForce;
         public float ChargeMultiplier;
         public float MaxCharge = 100;
@@ -38,6 +40,8 @@ namespace JumpingGame
 
         private void Update()
         {
+            GameAlwaysAlive.DoUpdate(config);
+
             if (lose)
             {
                 return;

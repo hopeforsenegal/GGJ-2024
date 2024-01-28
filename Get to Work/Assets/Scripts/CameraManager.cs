@@ -12,6 +12,7 @@ public class DoorToVantage{
 
 public class CameraManager : MonoBehaviour
 {
+    public Config config;
     public DoorToVantage[] doorToVantage;
     public GameObject vantage1;
     public GameObject vantage2;
@@ -19,16 +20,10 @@ public class CameraManager : MonoBehaviour
     public GameObject spawn2;
     public Camera camera;
 
-    // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update() 
-    {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        GameAlwaysAlive.DoUpdate(config);
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             MoveCamera(camera, vantage2.transform);
         }

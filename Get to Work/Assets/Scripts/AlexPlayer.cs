@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class AlexPlayer : MonoBehaviour
 {
+    public Config config;
     // States
     int state = 0;  // 0=Run, 1=Jump, 2=Wipeout Air, 3=Wipeout Ground
 
@@ -45,6 +46,7 @@ public class AlexPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameAlwaysAlive.DoUpdate(config);
         // Update animation
         animCounter += animSpeed;
 
