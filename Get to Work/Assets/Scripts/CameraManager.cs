@@ -65,8 +65,12 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    internal void OnBulletEnemyCollision(Enemy enemy, Bullet bullet)
+    internal void OnBulletCollision(Collision2D collision, Bullet bullet)
     {
+        var enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+
             Debug.Log($"Damage Amount: {1}");
             enemy.health -= 1;
             Debug.Log($"Health is now: {enemy.health}");
@@ -75,6 +79,12 @@ public class CameraManager : MonoBehaviour
             {
                 Destroy(enemy.gameObject);
             }
+
+        }
+        else
+        {
+            Debug.Log($"We it not a enemy? {collision.gameObject.name}");
+        }
         Destroy(bullet.gameObject);
     }
 }

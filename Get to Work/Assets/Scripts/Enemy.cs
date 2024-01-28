@@ -7,7 +7,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public static event Action<Enemy> OnEnemyKilled;
-    public float health, maxHealth = 3f;
+    public float playerHealth, health, maxHealth = 3f;
 
 
     public float moveSpeed = 5f;
@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
+        playerHealth = 3f;
         health = maxHealth;
         target = GameObject.Find("Player").transform;
     }
@@ -60,12 +61,17 @@ public class Enemy : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("ey1");
         var player = collision.gameObject.GetComponent<TopDownDude>();
         if (player != null)
         {
-
-            //Debug.Log("Enemy Touched You");
-            
+            playerHealth -= 1;
+            Debug.Log("Enemy Touched You");
+            Debug.Log($"PLayer Health is now: {playerHealth}");
+            if (playerHealth <= 0)
+            {
+                Destroy(player.gameObject);
+            }
         }
 
     }

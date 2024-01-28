@@ -20,16 +20,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-        manager.OnBulletEnemyCollision(enemy, this);
-
-        }
-        else
-        {
-            Debug.Log($"We it not a enemy? {collision.gameObject.name}");
-        }
+        manager.OnBulletCollision(collision, this);
     }
 
 }
