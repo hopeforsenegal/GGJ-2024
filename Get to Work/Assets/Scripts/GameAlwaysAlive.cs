@@ -27,11 +27,11 @@ public class GameAlwaysAlive : MonoBehaviour
     public static GameAlwaysAlive Instance { get; private set; }
     private void Awake()
     {
-        if (Instance != null && Instance != this) {
-            Destroy(this);
-        } else {
+        if (Instance == null) {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        } else if (Instance != this) {
+            Destroy(gameObject);
         }
     }
 
