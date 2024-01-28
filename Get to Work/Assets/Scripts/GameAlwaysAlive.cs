@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -46,6 +47,16 @@ public static class GameAlwaysAlive
     {
         if (Actions.Quit) {
             TransitionTo(GameState.MainMenu, config);
+        }
+        if (Actions.TestWin) {
+            var newState = currentState switch
+            {
+                GameState.RunningGame => GameState.IntroJumpingGame,
+                GameState.JumpingGame => GameState.IntroShootingGame,
+                GameState.ShootingGame => GameState.Win,
+                _ => throw new ArgumentOutOfRangeException($"{currentState}"),
+            };
+            TransitionTo(newState, config);
         }
     }
 }

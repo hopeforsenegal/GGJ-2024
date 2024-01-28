@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -40,7 +41,7 @@ public class CutsceneRunner : MonoBehaviour
     {
         GameAlwaysAlive.DoUpdate(config);
 
-        if (Actions.TestWin || GameAlwaysAlive.currentState == GameState.Win) {
+        if (GameAlwaysAlive.currentState == GameState.Win) {
             winLoseScreen.enabled = true;
             winLoseScreen.sprite = config.WinScreen;
         }
@@ -51,7 +52,14 @@ public class CutsceneRunner : MonoBehaviour
             }
 
             if (cutsceneIndex == m_Game.dialouge.Length - 1) {
-                SceneManager.LoadScene(m_Game.levelToLoad);
+                var newState = GameAlwaysAlive.currentState switch
+                {
+                    GameState.IntroRunningGame => GameState.RunningGame,
+                    GameState.IntroJumpingGame => GameState.JumpingGame,
+                    GameState.IntroShootingGame => GameState.ShootingGame,
+                    _ => throw new ArgumentOutOfRangeException($"{GameAlwaysAlive.currentState}"),
+                };
+                GameAlwaysAlive.TransitionTo(newState, config);
             }
             cutsceneTimer = m_Game.timePerText;
             cutsceneIndex += 1;

@@ -25,10 +25,12 @@ MonoBehaviour:
     - This car isn't working! Guess I gotta run to work!
     levelToLoad: Alex
   JumpingGame:
-    screen: {fileID: 0}
-    timePerText: 0
-    dialouge: []
-    levelToLoad: 
+    screen: {fileID: 21300000, guid: d579d98da9f244031be705da1c2c388b, type: 3}
+    timePerText: 5
+    dialouge:
+    - Wait what! The elevator is out?!
+    - ... And the damn STAIRS!???
+    levelToLoad: Nathan
   ShootingGame:
     screen: {fileID: 0}
     timePerText: 0
