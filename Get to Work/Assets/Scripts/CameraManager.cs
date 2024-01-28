@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class DoorToVantage{
-   public Door door;
-   public GameObject vantage;
-   public GameObject spawn;
-   public Enemy[] enemies;
+public class DoorToVantage
+{
+    public Door door;
+    public GameObject vantage;
+    public GameObject spawn;
+    public Enemy[] enemies;
+    public bool isFinalExit;
 }
 
 public class CameraManager : MonoBehaviour
@@ -85,16 +87,21 @@ public class CameraManager : MonoBehaviour
     }
 
     // Collisions
-    public void OnPlayerDoorCollision(TopDownDude player,Door door)
+    public void OnPlayerDoorCollision(TopDownDude player, Door door)
     {
         if (player != null)
         {
-
             Debug.Log($"I touched the {door.name}");
             foreach (var dV in doorToVantage)
             {
                 if(dV.door == door)
                 {
+                    if (dV.isFinalExit) {
+                        // Win the game
+                        GameAlwaysAlive.Instance.TransitionTo(GameState.Win);
+                        return;
+                    }
+
                     var enemies = dV.enemies;
                     foreach (var enemy in enemies)
                     {
