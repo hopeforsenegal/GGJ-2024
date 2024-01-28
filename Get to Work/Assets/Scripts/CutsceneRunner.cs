@@ -13,7 +13,7 @@ public static class Actions
     public static bool TestWin => Input.GetKey(KeyCode.Alpha2);
 }
 
-public class Game : MonoBehaviour
+public class CutsceneRunner : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     public Config config;

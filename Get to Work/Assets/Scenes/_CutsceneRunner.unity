@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 1293792461}
   - component: {fileID: 1293792460}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: CutsceneRunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
