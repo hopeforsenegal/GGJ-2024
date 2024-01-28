@@ -51,7 +51,7 @@ public class CutsceneRunner : MonoBehaviour
             }
 
             if (cutsceneIndex == m_Game.dialouge.Length - 1) {
-                SceneManager.LoadScene(m_Game.nextLevel);
+                SceneManager.LoadScene(m_Game.levelToLoad);
             }
             cutsceneTimer = m_Game.timePerText;
             cutsceneIndex += 1;

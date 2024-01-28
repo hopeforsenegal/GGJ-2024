@@ -32,9 +32,9 @@ public static class GameAlwaysAlive
             GameState.IntroJumpingGame => config.cutsceneManagerScene,
             GameState.IntroShootingGame => config.cutsceneManagerScene,
             GameState.Win => config.cutsceneManagerScene,
-            GameState.RunningGame => config.RunningGame.nextLevel,
-            GameState.JumpingGame => config.JumpingGame.nextLevel,
-            GameState.ShootingGame => config.ShootingGame.nextLevel,
+            GameState.RunningGame => config.RunningGame.levelToLoad,
+            GameState.JumpingGame => config.JumpingGame.levelToLoad,
+            GameState.ShootingGame => config.ShootingGame.levelToLoad,
             GameState.MainMenu => config.mainMenuScene,
             _ => throw new System.NotImplementedException(),
         };
