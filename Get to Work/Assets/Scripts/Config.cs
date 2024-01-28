@@ -16,6 +16,7 @@ public class Config : ScriptableObject
     [Header("Game")]
     public string mainMenuScene;
     public string cutsceneManagerScene;
+    public string winScene;
 
     [Header("Audio")]
     public AudioClip MenuMusic;

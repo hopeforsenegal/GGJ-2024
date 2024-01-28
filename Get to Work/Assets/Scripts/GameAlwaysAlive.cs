@@ -76,7 +76,7 @@ public class GameAlwaysAlive : MonoBehaviour
             GameState.IntroRunningGame => config.cutsceneManagerScene,
             GameState.IntroJumpingGame => config.cutsceneManagerScene,
             GameState.IntroShootingGame => config.cutsceneManagerScene,
-            GameState.Win => config.cutsceneManagerScene,
+            GameState.Win => config.winScene,
             GameState.RunningGame => config.RunningGame.levelToLoad,
             GameState.JumpingGame => config.JumpingGame.levelToLoad,
             GameState.ShootingGame => config.ShootingGame.levelToLoad,

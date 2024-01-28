@@ -109,8 +109,11 @@ namespace JumpingGame
                 slider.value = jumpTimer;
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
+            if (Input.GetKeyUp(KeyCode.Space)) {
+                if (GameAlwaysAlive.Instance) { Debug.Log("1"); }
+                if (GameAlwaysAlive.Instance.sfx) { Debug.Log("2"); }
+                if (config) { Debug.Log("3"); }
+                if (config) { Debug.Log("3"); }
                 GameAlwaysAlive.Instance.sfx.clip = config.JumpSFX;
                 GameAlwaysAlive.Instance.sfx.Play();
 
