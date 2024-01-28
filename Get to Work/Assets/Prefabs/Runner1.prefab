@@ -264,7 +264,7 @@ MonoBehaviour:
   runSpeed: 8
   dx: 0
   jumpPressed: 0
-  gravStren: 0.1
+  gravStren: 0.25
   jumpStren: 10
   playerBodyRenderer: {fileID: 5343142779128759652}
   runSprites:
