@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class AlexRunner : MonoBehaviour
 {
+    public Config config;
+
     // States
     int state = 0;  // 0=Run, 1=Jump, 2=Wipeout Air, 3=Wipeout Ground
     public bool isPlayer = false;
@@ -75,8 +77,12 @@ public class AlexRunner : MonoBehaviour
             }
 
             // Jump
-            if (jumpPressed)
-            {
+            if (jumpPressed) {
+
+                if (isPlayer) {
+                    GameAlwaysAlive.Instance.sfx.clip = config.RunJumpSFX;
+                    GameAlwaysAlive.Instance.sfx.Play();
+                }
                 // Enter jump state
                 state = 1;
 
@@ -115,6 +121,11 @@ public class AlexRunner : MonoBehaviour
             if (playerBody.transform.position.y < transform.position.y)
             {
                 state = 0;
+
+                if (isPlayer) {
+                    GameAlwaysAlive.Instance.sfx.clip = config.RunLandSFX;
+                    GameAlwaysAlive.Instance.sfx.Play();
+                }
             }
         }
         // Wipeout Air
@@ -136,6 +147,11 @@ public class AlexRunner : MonoBehaviour
                 state = 3;
                 vel.x = 0;
                 vel.y = 0;
+
+                if (isPlayer) {
+                    GameAlwaysAlive.Instance.sfx.clip = config.RunLandSFX;
+                    GameAlwaysAlive.Instance.sfx.Play();
+                }
             }
         }
         // Wipeout Ground
@@ -171,6 +187,12 @@ public class AlexRunner : MonoBehaviour
                 state = 2;
                 yAirVel = jumpStren;
                 wipeoutTimer = wipeoutDuration;
+
+
+                if (isPlayer) {
+                    GameAlwaysAlive.Instance.sfx.clip = config.RunTripSFX;
+                    GameAlwaysAlive.Instance.sfx.Play();
+                }
             }
             // Else if already wiping out and close to ground
             else if (state == 2 && playerBody.transform.position.y - transform.position.y < 1f)

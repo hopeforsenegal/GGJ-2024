@@ -23,6 +23,10 @@ public class Config : ScriptableObject
     public AudioClip RunMusic;
     public AudioClip JumpMusic;
     public AudioClip ShootMusic;
+    [Header("Audio/Run")]
+    public AudioClip RunJumpSFX;
+    public AudioClip RunLandSFX;
+    public AudioClip RunTripSFX;
     [Header("Audio/Jump")]
     public AudioClip JumpSFX;
 
