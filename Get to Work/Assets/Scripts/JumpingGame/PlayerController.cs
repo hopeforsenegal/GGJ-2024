@@ -74,6 +74,10 @@ namespace JumpingGame
         public void Victory()
         {
             sr.sprite = Win;
+            LeanTween.moveLocal(Camera.main.gameObject, new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -6), 1).setOnComplete(() =>
+            {
+                GameAlwaysAlive.Instance.TransitionTo(GameState.IntroShootingGame);
+            });
         }
 
         private void HandleDirection()
