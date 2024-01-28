@@ -8,13 +8,11 @@ public class TopDownDude : MonoBehaviour
     float speedX, speedY;
     Rigidbody2D rb;
 
-    public bool test;
     public bool spawnFacingLeft;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        test = true;
     }
 
     void Update()
