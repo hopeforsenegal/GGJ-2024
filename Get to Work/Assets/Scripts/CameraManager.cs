@@ -1,12 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class DoorToVantage{
+   public Door door;
+   public GameObject vantage;
+   public GameObject spawn;
+}
+
 public class CameraManager : MonoBehaviour
 {
-
-    public GameObject invis1;
-    public GameObject invis2;
+    public DoorToVantage[] doorToVantage;
+    public GameObject vantage1;
+    public GameObject vantage2;
+    public GameObject spawn1;
+    public GameObject spawn2;
     public Camera camera;
 
     // Start is called before the first frame update
@@ -20,19 +30,33 @@ public class CameraManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            MoveCamera(camera, invis2.transform);
+            MoveCamera(camera, vantage2.transform);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            MoveCamera(camera, invis1.transform);
+            MoveCamera(camera, vantage1.transform);
         }
 
     }
-
-    public static void MoveCamera(Camera c, Transform invis)
+    public void OnPlayerDoorCollision(TopDownDude player)
     {
-        var pos = invis.transform.position;
+        if (player != null)
+        {
+
+            Debug.Log("I touched the door");
+            CameraManager.MoveCamera(camera, vantage2.transform);
+            CameraManager.MovePlayer(player, spawn2.transform);
+        }
+    }
+    public static void MoveCamera(Camera c, Transform vantage)
+    {
+        var pos = vantage.transform.position;
         pos.z = c.transform.position.z;
         LeanTween.move(c.gameObject, pos, 0.3f);
+    }
+    public static void MovePlayer(TopDownDude player, Transform spawn)
+    {
+        var spawnPoint = spawn.transform.position;
+        LeanTween.move(player.gameObject, spawnPoint, 0.01f);
     }
 }
