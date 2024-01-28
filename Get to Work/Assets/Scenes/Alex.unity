@@ -1202,7 +1202,7 @@ MonoBehaviour:
   dx: 0
   jumpPressed: 0
   gravStren: 0.1
-  jumpStren: 14
+  jumpStren: 10
   playerBodyRenderer: {fileID: 567729006}
   runSprites:
   - {fileID: -8038236198308931415, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}
