@@ -124,10 +124,7 @@ public class CameraManager : MonoBehaviour
         var enemy = collision.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
-
-            Debug.Log($"Damage Amount: {1}");
             enemy.health -= 1;
-            Debug.Log($"Health is now: {enemy.health}");
 
             if (enemy.health <= 0)
             {

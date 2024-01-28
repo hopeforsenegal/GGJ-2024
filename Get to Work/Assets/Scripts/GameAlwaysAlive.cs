@@ -99,6 +99,7 @@ public class GameAlwaysAlive : MonoBehaviour
         }
 
         if (currentState == GameState.MainMenu) {
+            Debug.Log("Reset the time");
             runningTime = 0;
         }
 
