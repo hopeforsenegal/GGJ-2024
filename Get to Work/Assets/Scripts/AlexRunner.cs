@@ -47,6 +47,8 @@ public class AlexRunner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameAlwaysAlive.Instance.runningTime += Time.deltaTime;
+
         // Update animation
         animCounter += animSpeed;
 

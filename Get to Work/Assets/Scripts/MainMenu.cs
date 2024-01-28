@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
     protected void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Actions.Quit) {
             QuitGame();
         }
     }

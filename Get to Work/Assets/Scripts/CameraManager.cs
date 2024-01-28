@@ -22,6 +22,8 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        GameAlwaysAlive.Instance.runningTime += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             MoveCamera(camera, vantage2.transform);
@@ -30,7 +32,6 @@ public class CameraManager : MonoBehaviour
         {
             MoveCamera(camera, vantage1.transform);
         }
-
     }
 
     public static void MoveCamera(Camera c, Transform vantage)
@@ -78,11 +79,10 @@ public class CameraManager : MonoBehaviour
             {
                 Destroy(enemy.gameObject);
             }
-
         }
         else
         {
-            Debug.Log($"We it not a enemy? {collision.gameObject.name}");
+            Debug.Log($"We hit not a enemy? {collision.gameObject.name}");
         }
         Destroy(bullet.gameObject);
     }
