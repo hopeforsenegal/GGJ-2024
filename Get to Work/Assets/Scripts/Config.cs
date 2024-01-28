@@ -29,6 +29,8 @@ public class Config : ScriptableObject
     public AudioClip RunTripSFX;
     [Header("Audio/Jump")]
     public AudioClip JumpSFX;
+    [Header("Audio/Shoot")]
+    public AudioClip DeathSFX;
 
 
     [Header("UI")]

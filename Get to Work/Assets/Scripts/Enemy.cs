@@ -80,6 +80,7 @@ public class Enemy : MonoBehaviour
             Debug.Log($"Player Health is now: {playerHealth}");
             if (playerHealth <= 0)
             {
+                GameAlwaysAlive.Instance.PlayDeath();
                 GameAlwaysAlive.Instance.TransitionTo(GameState.ShootingGame);
             }
         }
