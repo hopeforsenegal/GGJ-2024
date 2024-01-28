@@ -21,6 +21,8 @@ namespace JumpingGame
         private float jumpTimer;
         private bool holdingJump;
 
+        public bool lose;
+
         private Rigidbody2D rb;
         private SpriteRenderer sr;
         private Slider slider;
@@ -36,6 +38,11 @@ namespace JumpingGame
 
         private void Update()
         {
+            if (lose)
+            {
+                return;
+            }
+
             HandleDirection();
             HandleJump();
 
