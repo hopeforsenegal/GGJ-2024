@@ -27,8 +27,6 @@ public class Config : ScriptableObject
     public CutScene RunningGame;
     public CutScene JumpingGame;
     public CutScene ShootingGame;
-
-    public Sprite LoseScreen;
     public Sprite WinScreen;
 
 
