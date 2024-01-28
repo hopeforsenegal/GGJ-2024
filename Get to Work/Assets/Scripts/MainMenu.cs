@@ -12,13 +12,9 @@ public class MainMenu : MonoBehaviour
 
     protected void Start()
     {
-        var a = FindObjectOfType<AudioSource>();
-        a.clip = config.Menu;
-        a.Play();
-
         play.onClick.AddListener(() =>
         {
-            GameAlwaysAlive.TransitionTo(GameState.IntroRunningGame, config);
+            GameAlwaysAlive.Instance.TransitionTo(GameState.IntroRunningGame);
         });
         quit.onClick.AddListener(() =>
         {

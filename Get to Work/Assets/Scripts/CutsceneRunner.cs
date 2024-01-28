@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CutsceneRunner : MonoBehaviour
@@ -20,8 +19,8 @@ public class CutsceneRunner : MonoBehaviour
 
     protected void Start()
     {
-        if (GameAlwaysAlive.currentState == GameState.IntroRunningGame || GameAlwaysAlive.currentState == GameState.IntroJumpingGame || GameAlwaysAlive.currentState == GameState.IntroShootingGame) {
-            m_Game = GameAlwaysAlive.currentState switch
+        if (GameAlwaysAlive.Instance.currentState == GameState.IntroRunningGame || GameAlwaysAlive.Instance.currentState == GameState.IntroJumpingGame || GameAlwaysAlive.Instance.currentState == GameState.IntroShootingGame) {
+            m_Game = GameAlwaysAlive.Instance.currentState switch
             {
                 GameState.IntroRunningGame => config.RunningGame,
                 GameState.IntroJumpingGame => config.JumpingGame,
@@ -39,9 +38,7 @@ public class CutsceneRunner : MonoBehaviour
 
     protected void Update()
     {
-        GameAlwaysAlive.DoUpdate(config);
-
-        if (GameAlwaysAlive.currentState == GameState.Win) {
+        if (GameAlwaysAlive.Instance.currentState == GameState.Win) {
             winLoseScreen.enabled = true;
             winLoseScreen.sprite = config.WinScreen;
         }
@@ -52,14 +49,14 @@ public class CutsceneRunner : MonoBehaviour
             }
 
             if (cutsceneIndex == m_Game.dialouge.Length - 1) {
-                var newState = GameAlwaysAlive.currentState switch
+                var newState = GameAlwaysAlive.Instance.currentState switch
                 {
                     GameState.IntroRunningGame => GameState.RunningGame,
                     GameState.IntroJumpingGame => GameState.JumpingGame,
                     GameState.IntroShootingGame => GameState.ShootingGame,
-                    _ => throw new ArgumentOutOfRangeException($"{GameAlwaysAlive.currentState}"),
+                    _ => throw new ArgumentOutOfRangeException($"{GameAlwaysAlive.Instance.currentState}"),
                 };
-                GameAlwaysAlive.TransitionTo(newState, config);
+                GameAlwaysAlive.Instance.TransitionTo(newState);
             }
             cutsceneTimer = m_Game.timePerText;
             cutsceneIndex += 1;

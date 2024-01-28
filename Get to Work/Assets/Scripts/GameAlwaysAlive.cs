@@ -14,19 +14,58 @@ public enum GameState
     Win
 }
 
-// We could populate these actions from the Config if we really wanted to
 public static class Actions
 {
     public static bool Quit => Input.GetKeyDown(KeyCode.Escape);
-
     public static bool TestWin => Input.GetKey(KeyCode.Alpha1);
 }
 
-public static class GameAlwaysAlive
+public class GameAlwaysAlive : MonoBehaviour
 {
-    public static GameState currentState;
-    public static void TransitionTo(GameState gameState, Config config)
+    // Singleton
+    public static GameAlwaysAlive Instance { get; private set; }
+    private void Awake()
     {
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        } else {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    public Config config;
+    public AudioSource music;
+    public AudioSource sfx;
+
+    public GameState currentState;
+
+    protected void Start()
+    {
+        music.clip = config.MenuMusic;
+        music.Play();
+    }
+
+    protected void Update()
+    {
+        if (Actions.Quit) {
+            TransitionTo(GameState.MainMenu);
+        }
+        if (Actions.TestWin) {
+            var newState = currentState switch
+            {
+                GameState.RunningGame => GameState.IntroJumpingGame,
+                GameState.JumpingGame => GameState.IntroShootingGame,
+                GameState.ShootingGame => GameState.Win,
+                _ => throw new ArgumentOutOfRangeException($"{currentState}"),
+            };
+            TransitionTo(newState);
+        }
+    }
+
+    public void TransitionTo(GameState gameState)
+    {
+        // Choose scene
         var scene = gameState switch
         {
             GameState.IntroRunningGame => config.cutsceneManagerScene,
@@ -39,24 +78,26 @@ public static class GameAlwaysAlive
             GameState.MainMenu => config.mainMenuScene,
             _ => throw new System.NotImplementedException(),
         };
+
+        // Play right music track
+        var musicTrack = gameState switch
+        {
+            GameState.IntroRunningGame => config.RunMusic,
+            GameState.RunningGame => config.RunMusic,
+            GameState.IntroJumpingGame => config.JumpMusic,
+            GameState.JumpingGame => config.JumpMusic,
+            GameState.IntroShootingGame => config.ShootMusic,
+            GameState.ShootingGame => config.ShootMusic,
+            GameState.Win => config.MenuMusic,
+            GameState.MainMenu => config.MenuMusic,
+            _ => throw new NotImplementedException(),
+        };
+        if (music.clip != musicTrack) {
+            music.clip = musicTrack;
+            music.Play();
+        }
+
         currentState = gameState;
         SceneManager.LoadScene(scene);
-    }
-
-    public static void DoUpdate(Config config)
-    {
-        if (Actions.Quit) {
-            TransitionTo(GameState.MainMenu, config);
-        }
-        if (Actions.TestWin) {
-            var newState = currentState switch
-            {
-                GameState.RunningGame => GameState.IntroJumpingGame,
-                GameState.JumpingGame => GameState.IntroShootingGame,
-                GameState.ShootingGame => GameState.Win,
-                _ => throw new ArgumentOutOfRangeException($"{currentState}"),
-            };
-            TransitionTo(newState, config);
-        }
     }
 }

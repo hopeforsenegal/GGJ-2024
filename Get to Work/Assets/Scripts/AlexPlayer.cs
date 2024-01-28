@@ -18,8 +18,6 @@ public class AlexPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameAlwaysAlive.DoUpdate(config);
-
         // Check win condition
         if (transform.position.y < -50)
         {

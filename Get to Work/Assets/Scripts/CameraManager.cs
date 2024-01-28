@@ -22,7 +22,6 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        GameAlwaysAlive.DoUpdate(config);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             MoveCamera(camera, vantage2.transform);

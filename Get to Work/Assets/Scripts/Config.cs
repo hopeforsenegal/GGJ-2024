@@ -18,9 +18,10 @@ public class Config : ScriptableObject
     public string cutsceneManagerScene;
 
     [Header("Audio")]
-    public AudioClip Menu;
-    public AudioClip Lose;
-    public AudioClip Win;
+    public AudioClip MenuMusic;
+    public AudioClip RunMusic;
+    public AudioClip JumpMusic;
+    public AudioClip ShootMusic;
 
 
     [Header("UI")]

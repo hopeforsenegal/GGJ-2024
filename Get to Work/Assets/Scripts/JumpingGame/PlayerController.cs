@@ -40,8 +40,6 @@ namespace JumpingGame
 
         private void Update()
         {
-            GameAlwaysAlive.DoUpdate(config);
-
             if (lose)
             {
                 return;
