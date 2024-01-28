@@ -72,16 +72,15 @@ public class Enemy : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("ey1");
         var player = collision.gameObject.GetComponent<TopDownDude>();
         if (player != null)
         {
             playerHealth -= 1;
             Debug.Log("Enemy Touched You");
-            Debug.Log($"PLayer Health is now: {playerHealth}");
+            Debug.Log($"Player Health is now: {playerHealth}");
             if (playerHealth <= 0)
             {
-                Destroy(player.gameObject);
+                GameAlwaysAlive.Instance.TransitionTo(GameState.ShootingGame);
             }
         }
 
