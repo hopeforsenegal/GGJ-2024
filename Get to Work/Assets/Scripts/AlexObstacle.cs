@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlexBush : MonoBehaviour
+public class AlexObstacle : MonoBehaviour
 {
     // Timer
     int timer = 0;

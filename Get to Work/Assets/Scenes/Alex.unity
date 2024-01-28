@@ -394,7 +394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae37aaace8d2cb345a6ffbb31bf8d6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bush: {fileID: 7466739622815621404, guid: 49625dfd4ca3dbb4f88239d3ec8c767a, type: 3}
+  obstacles:
+  - {fileID: 7466739622815621404, guid: 49625dfd4ca3dbb4f88239d3ec8c767a, type: 3}
+  - {fileID: 7466739622815621404, guid: 93cb921850ade594d8c8a4747a121281, type: 3}
+  - {fileID: 7466739622815621404, guid: bcdbbe083d6258941838a4c079d2e9e0, type: 3}
 --- !u!1 &1004376939
 GameObject:
   m_ObjectHideFlags: 0

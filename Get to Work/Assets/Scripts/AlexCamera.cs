@@ -5,10 +5,12 @@ using UnityEngine;
 public class AlexCamera : MonoBehaviour
 {
     // Spawning
-    public GameObject bush;
-
-    // Timer
-    int timer = 0;
+    public GameObject[] obstacles;
+    int spawnFreq = 4;  // low number = high spawn frequency, high number = low spawn frequency
+    int spawnRadius = 30;
+    int minSpawnCount = 1;
+    int maxSpawnCount = 10;
+    bool notSpawned = true;
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +21,26 @@ public class AlexCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Regularly spawn bush
-        timer += 1;
-        if (timer % 60 == 0)
+        // If at spawn line
+        if ((int)transform.position.y % spawnFreq == 0)
         {
-            for (int i = 0; i < 2; i++)
+            // If not already spawned there
+            if (notSpawned)
             {
-                float x = transform.position.x + Random.Range(-20f, 20f);
-                float y = transform.position.y - 10f;
-                Instantiate(bush, new Vector3(x, y, 0), Quaternion.identity);
+                int spawnCount = Random.Range(minSpawnCount, maxSpawnCount);
+                for (int i = 0; i < spawnCount; i++)
+                {
+                    float x = transform.position.x + Random.Range(-spawnRadius, spawnRadius);
+                    float y = transform.position.y - 10f;
+                    int obstacleIdx = Random.Range(0,obstacles.Length);
+                    Instantiate(obstacles[obstacleIdx], new Vector3(x, y, 0), Quaternion.identity);
+                }
+                notSpawned = false;
             }
         }
+        else
+        {
+            notSpawned = true;
+        }
     }
-
-    // Spawn
 }
