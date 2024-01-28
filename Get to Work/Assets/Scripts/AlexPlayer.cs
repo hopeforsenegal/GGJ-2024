@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class AlexPlayer : MonoBehaviour
 {
-    public Config config;
     public AlexRunner runner;
 
     // Update is called once per frame

@@ -1028,7 +1028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282674483ccdfe74c8f1b12f85439722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 2770b26fec3454b1985ebac92fd2bcd3, type: 2}
   runner: {fileID: 1381054822}
 --- !u!1 &1158249027
 GameObject:
@@ -1195,6 +1194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c52c3ab005dba741b13c126c1b27db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 2770b26fec3454b1985ebac92fd2bcd3, type: 2}
   isPlayer: 1
   playerBody: {fileID: 567729004}
   playerShadow: {fileID: 1478613001}
