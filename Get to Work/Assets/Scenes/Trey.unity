@@ -977,7 +977,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476702991}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc2cdede4e6a6784bad246426752f8ef, type: 3}
   m_Name: 
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617812110}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc2cdede4e6a6784bad246426752f8ef, type: 3}
   m_Name: 
@@ -2283,9 +2283,14 @@ MonoBehaviour:
   - door: {fileID: 698404539}
     vantage: {fileID: 735383096}
     spawn: {fileID: 1245134036}
+    enemies:
+    - {fileID: 617812112}
+    - {fileID: 476702993}
+    - {fileID: 1896278225}
   - door: {fileID: 1198047142}
     vantage: {fileID: 901512725}
     spawn: {fileID: 1732254002}
+    enemies: []
   vantage1: {fileID: 901512725}
   vantage2: {fileID: 735383096}
   spawn1: {fileID: 1732254002}
@@ -3586,7 +3591,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896278223}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc2cdede4e6a6784bad246426752f8ef, type: 3}
   m_Name: 

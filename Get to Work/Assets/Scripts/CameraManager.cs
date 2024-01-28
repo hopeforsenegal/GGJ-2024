@@ -8,6 +8,7 @@ public class DoorToVantage{
    public Door door;
    public GameObject vantage;
    public GameObject spawn;
+   public Enemy[] enemies;
 }
 
 public class CameraManager : MonoBehaviour
@@ -53,12 +54,17 @@ public class CameraManager : MonoBehaviour
         {
 
             Debug.Log($"I touched the {door.name}");
-            foreach (var d in doorToVantage)
+            foreach (var dV in doorToVantage)
             {
-                if(d.door == door)
+                if(dV.door == door)
                 {
-                    CameraManager.MoveCamera(camera, d.vantage.transform);
-                    CameraManager.MovePlayer(player, d.spawn.transform);
+                    var enemies = dV.enemies;
+                    foreach (var enemy in enemies)
+                    {
+                        enemy.enabled = true;
+                    }
+                    CameraManager.MoveCamera(camera, dV.vantage.transform);
+                    CameraManager.MovePlayer(player, dV.spawn.transform);
                 }
             }
 
