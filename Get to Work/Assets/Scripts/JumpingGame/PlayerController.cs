@@ -74,6 +74,10 @@ namespace JumpingGame
         public void Victory()
         {
             sr.sprite = Win;
+            LeanTween.moveLocal(Camera.main.gameObject, new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -6), 1).setOnComplete(() =>
+            {
+                GameAlwaysAlive.Instance.TransitionTo(GameState.IntroShootingGame);
+            });
         }
 
         private void HandleDirection()
@@ -109,8 +113,11 @@ namespace JumpingGame
                 slider.value = jumpTimer;
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
+            if (Input.GetKeyUp(KeyCode.Space)) {
+                if (GameAlwaysAlive.Instance) { Debug.Log("1"); }
+                if (GameAlwaysAlive.Instance.sfx) { Debug.Log("2"); }
+                if (config) { Debug.Log("3"); }
+                if (config) { Debug.Log("3"); }
                 GameAlwaysAlive.Instance.sfx.clip = config.JumpSFX;
                 GameAlwaysAlive.Instance.sfx.Play();
 

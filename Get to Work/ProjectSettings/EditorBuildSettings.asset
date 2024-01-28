@@ -10,13 +10,13 @@ EditorBuildSettings:
     guid: a7b45bdbcdb5b4c3b96cc090de810068
   - enabled: 1
     path: Assets/Scenes/_CutsceneRunner.unity
+    guid: d98e1262d1a034974a0ad42d42e180b5
+  - enabled: 1
+    path: Assets/Scenes/_End.unity
     guid: 7be49015c2c664e93a7ca291d5f45eef
   - enabled: 1
     path: Assets/Scenes/Alex.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Kamau.unity
-    guid: 324b6325ab59b4c3d94e1c38345db766
   - enabled: 1
     path: Assets/Scenes/Nathan.unity
     guid: 34ded23f929a1434d91c153d100e5d9d
