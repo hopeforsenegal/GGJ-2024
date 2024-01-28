@@ -47,6 +47,8 @@ namespace JumpingGame
                 return;
             }
 
+            GameAlwaysAlive.Instance.runningTime += Time.deltaTime;
+
             HandleDirection();
             HandleJump();
 

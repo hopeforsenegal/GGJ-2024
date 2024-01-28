@@ -6,7 +6,7 @@ public struct CutScene
 {
     public Sprite screen;
     public float timePerText;
-    public string[] dialouge;    
+    public string[] dialouge;
     public string levelToLoad;
 }
 

@@ -11,6 +11,7 @@ public class AlexPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameAlwaysAlive.Instance.runningTime += Time.deltaTime;
         // Update inputs
         runner.dx = Input.GetAxis("Horizontal");
         runner.jumpPressed = Input.GetKeyDown("space");

@@ -25,19 +25,6 @@ public class AlexCamera : MonoBehaviour
     int minActorSpawnCount = 1;
     int maxActorSpawnCount = 1;
 
-    // Called once on level complete
-    void onLevelComplete()
-    {
-        Debug.Log("You made to work!");
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         // Spawn thresholds
@@ -105,10 +92,13 @@ public class AlexCamera : MonoBehaviour
         }
 
         // Check win condition
-        if (transform.position.y < -goalDistance && !levelComplete)
-        {
+        if (!levelComplete && transform.position.y < -goalDistance) {
             levelComplete = true;
-            onLevelComplete();
+
+            LeanTween.moveLocal(Camera.main.gameObject, new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -6), 1).setOnComplete(() =>
+            {
+                GameAlwaysAlive.Instance.TransitionTo(GameState.IntroJumpingGame);
+            });
         }
     }
 }

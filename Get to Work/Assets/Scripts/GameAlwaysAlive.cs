@@ -18,6 +18,7 @@ public static class Actions
 {
     public static bool Quit => Input.GetKeyDown(KeyCode.Escape);
     public static bool TestWin => Input.GetKey(KeyCode.Alpha1);
+    public static bool PrintTime => Input.GetKeyDown(KeyCode.P);
 }
 
 public class GameAlwaysAlive : MonoBehaviour
@@ -39,6 +40,7 @@ public class GameAlwaysAlive : MonoBehaviour
     public AudioSource sfx;
 
     public GameState currentState;
+    public float runningTime;
 
     protected void Start()
     {
@@ -60,6 +62,9 @@ public class GameAlwaysAlive : MonoBehaviour
                 _ => throw new ArgumentOutOfRangeException($"{currentState}"),
             };
             TransitionTo(newState);
+        }
+        if (Actions.PrintTime) {
+            Debug.Log($"{TimeSpan.FromSeconds(runningTime)}");
         }
     }
 
@@ -95,6 +100,10 @@ public class GameAlwaysAlive : MonoBehaviour
         if (music.clip != musicTrack) {
             music.clip = musicTrack;
             music.Play();
+        }
+
+        if (currentState == GameState.MainMenu) {
+            runningTime = 0;
         }
 
         currentState = gameState;
