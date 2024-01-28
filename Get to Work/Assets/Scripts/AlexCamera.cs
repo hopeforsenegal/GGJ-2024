@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AlexCamera : MonoBehaviour
 {
+    // Goals
+    bool levelComplete = false;
+    float goalDistance = 500.0f;
+
     // Spawning
     public GameObject[] obstacles;
     int spawnFreq = 4;  // low number = high spawn frequency, high number = low spawn frequency
@@ -11,6 +15,12 @@ public class AlexCamera : MonoBehaviour
     int minSpawnCount = 1;
     int maxSpawnCount = 10;
     bool notSpawned = true;
+
+    // Called once on level complete
+    void onLevelComplete()
+    {
+        Debug.Log("You made to work!");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +32,7 @@ public class AlexCamera : MonoBehaviour
     void Update()
     {
         // If at spawn line
-        if ((int)transform.position.y % spawnFreq == 0)
+        if (!levelComplete && (int)transform.position.y % spawnFreq == 0)
         {
             // If not already spawned there
             if (notSpawned)
@@ -41,6 +51,13 @@ public class AlexCamera : MonoBehaviour
         else
         {
             notSpawned = true;
+        }
+
+        // Check win condition
+        if (transform.position.y < -goalDistance && !levelComplete)
+        {
+            levelComplete = true;
+            onLevelComplete();
         }
     }
 }

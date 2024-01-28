@@ -14,11 +14,5 @@ public class AlexPlayer : MonoBehaviour
         // Update inputs
         runner.dx = Input.GetAxis("Horizontal");
         runner.jumpPressed = Input.GetKeyDown("space");
-
-        // Check win condition
-        if (transform.position.y < -50)
-        {
-            Debug.Log("You made to work!");
-        }
     }
 }
