@@ -7,6 +7,7 @@ public class AlexRunner : MonoBehaviour
 {
     // States
     int state = 0;  // 0=Run, 1=Jump, 2=Wipeout Air, 3=Wipeout Ground
+    public bool isPlayer = false;
 
     // Objects
     public GameObject playerBody;
@@ -20,8 +21,8 @@ public class AlexRunner : MonoBehaviour
 
     // Air
     float yAirVel = 0;
-    float gravStren = 0.0005f;
-    float jumpStren = 0.06f;
+    public float gravStren = 0.0005f;
+    public float jumpStren = 0.06f;
 
     // Wipeout
     int wipeoutDuration = 180;
@@ -150,7 +151,9 @@ public class AlexRunner : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // If hit something while running
-        if (collision.gameObject.tag == "Obstacle")
+        //var otherRunner = (AlexRunner) collision.GetComponent<AlexRunner>();
+        if (collision.gameObject.tag == "Obstacle" ||
+            (isPlayer && collision.gameObject.tag == "NPC" && collision.GetComponent<AlexRunner>().playerBody.transform.position.y - collision.gameObject.transform.position.y < 1f))
         {
             // If in run state
             if (state == 0)
