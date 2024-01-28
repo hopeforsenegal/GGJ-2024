@@ -1,28 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // We could populate these actions from the Config if we really wanted to
 public static class Actions
 {
     public static (float, float) Movement => (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
     public static bool Shoot => Input.GetKeyDown(KeyCode.Space);
 
     // Take these out once we like the ending flow
     public static bool TestLose => Input.GetKey(KeyCode.Alpha1);
     public static bool TestWin => Input.GetKey(KeyCode.Alpha2);
 }
-
-public enum GameState
-{
-    Intro,
-    RunningGame,
-    JumpingGame,
-    ShootingGame,
-    Lose,
-    Win
-}
-
 
 public class Game : MonoBehaviour
 {
@@ -37,13 +26,22 @@ public class Game : MonoBehaviour
 
     private int cutsceneIndex;
     private float cutsceneTimer;
-    private GameState gameState;
+    private CutScene m_Game;
 
     protected void Start()
     {
-        cutsceneImage.sprite = config.IntroRunningGame.screen;
-        cutsceneText.text = config.IntroRunningGame.dialouge[cutsceneIndex];
-        cutsceneTimer = config.IntroRunningGame.timePerText;
+        if (GameAlwaysAlive.currentState == GameState.IntroRunningGame || GameAlwaysAlive.currentState == GameState.IntroJumpingGame || GameAlwaysAlive.currentState == GameState.IntroShootingGame) {
+            m_Game = GameAlwaysAlive.currentState switch
+            {
+                GameState.IntroRunningGame => config.RunningGame,
+                GameState.IntroJumpingGame => config.JumpingGame,
+                GameState.IntroShootingGame => config.ShootingGame,
+                _ => throw new System.NotImplementedException(),
+            };
+            cutsceneImage.sprite = m_Game.screen;
+            cutsceneText.text = m_Game.dialouge[cutsceneIndex];
+            cutsceneTimer = m_Game.timePerText;
+        }
         dialougeCanvasGroup.alpha = 1;
         dialougeCanvasGroup.blocksRaycasts = true;
         winLoseScreen.enabled = false;
@@ -63,17 +61,14 @@ public class Game : MonoBehaviour
 
         // Intro Screens
         if (Input.anyKeyDown || (cutsceneTimer -= Time.deltaTime) <= 0) {
-            if (cutsceneIndex < config.IntroRunningGame.dialouge.Length - 1) {
-                cutsceneText.text = config.IntroRunningGame.dialouge[cutsceneIndex + 1];
+            if (cutsceneIndex < m_Game.dialouge.Length - 1) {
+                cutsceneText.text = m_Game.dialouge[cutsceneIndex + 1];
             }
 
-            if (cutsceneIndex == config.IntroRunningGame.dialouge.Length - 1) {
-                gameState = GameState.RunningGame;
-                cutsceneImage.enabled = false;
-                dialougeCanvasGroup.alpha = 0;
-                dialougeCanvasGroup.blocksRaycasts = false;
+            if (cutsceneIndex == m_Game.dialouge.Length - 1) {
+                SceneManager.LoadScene(m_Game.nextLevel);
             }
-            cutsceneTimer = config.IntroRunningGame.timePerText;
+            cutsceneTimer = m_Game.timePerText;
             cutsceneIndex += 1;
         }
 

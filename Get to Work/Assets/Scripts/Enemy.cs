@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         if (player != null)
         {
 
-            Debug.Log("Enemy Touched You");
+            //Debug.Log("Enemy Touched You");
             
         }
 

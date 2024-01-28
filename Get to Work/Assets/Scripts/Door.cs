@@ -13,17 +13,12 @@ public class Door: MonoBehaviour
         manager = FindObjectOfType<CameraManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         var player = collision.gameObject.GetComponent<TopDownDude>();
-        manager.OnPlayerDoorCollision(player);
+        manager.OnPlayerDoorCollision(player,this);
 
     }
 }

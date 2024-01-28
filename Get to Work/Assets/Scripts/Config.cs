@@ -6,12 +6,17 @@ public struct CutScene
 {
     public Sprite screen;
     public float timePerText;
-    public string[] dialouge;
+    public string[] dialouge;    
+    public string nextLevel;
 }
 
 [CreateAssetMenu]
 public class Config : ScriptableObject
 {
+    [Header("Game")]
+    public string mainMenuScene;
+    public string cutsceneManagerScene;
+
     [Header("Audio")]
     public AudioClip Menu;
     public AudioClip Lose;
@@ -19,7 +24,9 @@ public class Config : ScriptableObject
 
 
     [Header("UI")]
-    public CutScene IntroRunningGame;
+    public CutScene RunningGame;
+    public CutScene JumpingGame;
+    public CutScene ShootingGame;
 
     public Sprite LoseScreen;
     public Sprite WinScreen;
@@ -36,8 +43,4 @@ public class Config : ScriptableObject
 
     [Header("Player/Shooter")]
     public float shooterPlayerSpeed;
-
-
-    [Header("Levels")]
-    public string firstLevel;
 }
