@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1198,11 +1198,11 @@ MonoBehaviour:
   isPlayer: 1
   playerBody: {fileID: 567729004}
   playerShadow: {fileID: 1478613001}
-  runSpeed: 0.04
+  runSpeed: 12
   dx: 0
   jumpPressed: 0
-  gravStren: 0.0005
-  jumpStren: 0.06
+  gravStren: 0.1
+  jumpStren: 14
   playerBodyRenderer: {fileID: 567729006}
   runSprites:
   - {fileID: -8038236198308931415, guid: 8dba23cd426374341ae7f6ba4391f7d6, type: 3}

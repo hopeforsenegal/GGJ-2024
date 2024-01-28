@@ -257,14 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c52c3ab005dba741b13c126c1b27db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 0}
   isPlayer: 0
   playerBody: {fileID: 6827969156042131231}
   playerShadow: {fileID: 2529964896471796907}
-  runSpeed: 0.03
+  runSpeed: 8
   dx: 0
   jumpPressed: 0
-  gravStren: 0.0005
-  jumpStren: 0.06
+  gravStren: 0.1
+  jumpStren: 14
   playerBodyRenderer: {fileID: 5343142779128759652}
   runSprites:
   - {fileID: -741804162307110367, guid: 896adb498af504a1395efde73a3c01ed, type: 3}

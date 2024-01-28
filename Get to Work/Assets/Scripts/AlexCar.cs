@@ -14,7 +14,7 @@ public class AlexCar : MonoBehaviour
     void Start()
     {
         float displacement = Camera.main.transform.position.x - transform.position.x;
-        xVel = displacement * 0.002f;
+        xVel = displacement * 0.4f;
         if (displacement < 0)
         {
             xVel *= -1;
@@ -26,7 +26,7 @@ public class AlexCar : MonoBehaviour
     void Update()
     {
         // Move
-        transform.position = transform.position + new Vector3(xVel,0f,0f);
+        transform.position = transform.position + new Vector3(xVel *Time.deltaTime,0f,0f);
 
         // Despawn if out of view
         timer += 1;

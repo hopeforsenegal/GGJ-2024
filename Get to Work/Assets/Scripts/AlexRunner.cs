@@ -115,7 +115,7 @@ public class AlexRunner : MonoBehaviour
             yAirVel -= gravStren;
 
             // Jump
-            playerBody.transform.position += new Vector3(0f, yAirVel, 0f);
+            playerBody.transform.position += new Vector3(0f, yAirVel * Time.deltaTime, 0f);
 
             // Check landing
             if (playerBody.transform.position.y < transform.position.y)
@@ -138,7 +138,7 @@ public class AlexRunner : MonoBehaviour
             yAirVel -= gravStren;
 
             // Jump
-            playerBody.transform.position += new Vector3(0f, yAirVel, 0f);
+            playerBody.transform.position += new Vector3(0f, yAirVel * Time.deltaTime, 0f);
 
             // Check landing
             if (playerBody.transform.position.y < transform.position.y)
@@ -170,7 +170,7 @@ public class AlexRunner : MonoBehaviour
         }
 
         // Update position
-        transform.position = transform.position + new Vector3(vel.x, vel.y, 0.0f);
+        transform.position = transform.position + new Vector3(vel.x * Time.deltaTime, vel.y * Time.deltaTime, 0.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
