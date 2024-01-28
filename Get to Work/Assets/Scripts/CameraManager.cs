@@ -33,6 +33,20 @@ public class CameraManager : MonoBehaviour
         }
 
     }
+
+    public static void MoveCamera(Camera c, Transform vantage)
+    {
+        var pos = vantage.transform.position;
+        pos.z = c.transform.position.z;
+        LeanTween.move(c.gameObject, pos, 0.3f);
+    }
+    public static void MovePlayer(TopDownDude player, Transform spawn)
+    {
+        var spawnPoint = spawn.transform.position;
+        LeanTween.move(player.gameObject, spawnPoint, 0.01f);
+    }
+
+    // Collisions
     public void OnPlayerDoorCollision(TopDownDude player,Door door)
     {
         if (player != null)
@@ -50,15 +64,17 @@ public class CameraManager : MonoBehaviour
 
         }
     }
-    public static void MoveCamera(Camera c, Transform vantage)
+
+    internal void OnBulletEnemyCollision(Enemy enemy, Bullet bullet)
     {
-        var pos = vantage.transform.position;
-        pos.z = c.transform.position.z;
-        LeanTween.move(c.gameObject, pos, 0.3f);
-    }
-    public static void MovePlayer(TopDownDude player, Transform spawn)
-    {
-        var spawnPoint = spawn.transform.position;
-        LeanTween.move(player.gameObject, spawnPoint, 0.01f);
+            Debug.Log($"Damage Amount: {1}");
+            enemy.health -= 1;
+            Debug.Log($"Health is now: {enemy.health}");
+
+            if (enemy.health <= 0)
+            {
+                Destroy(enemy.gameObject);
+            }
+        Destroy(bullet.gameObject);
     }
 }

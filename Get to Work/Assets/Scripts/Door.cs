@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class Door: MonoBehaviour
 {
-   // public GameObject invsi;
     private CameraManager manager;
-    // Start is called before the first frame update
+
     void Start()
     {
         manager = FindObjectOfType<CameraManager>();
     }
-
-
 
     void OnCollisionEnter2D(Collision2D collision)
     {

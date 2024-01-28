@@ -11,22 +11,25 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, timeTillDeath);
     }
+    private CameraManager manager;
+
+    void Start()
+    {
+        manager = FindObjectOfType<CameraManager>();
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         var enemy = collision.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
+        manager.OnBulletEnemyCollision(enemy, this);
 
-            Debug.Log($"Damage Amount: {1}");
-            enemy.health -= 1;
-            Debug.Log($"Health is now: {enemy.health}");
-
-            if (enemy.health <= 0)
-            {
-                Destroy(collision.gameObject);
-            }
         }
-        Destroy(gameObject);
+        else
+        {
+            Debug.Log($"We it not a enemy? {collision.gameObject.name}");
+        }
     }
+
 }
