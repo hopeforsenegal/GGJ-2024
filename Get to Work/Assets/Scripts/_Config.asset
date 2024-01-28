@@ -17,7 +17,7 @@ MonoBehaviour:
   MenuMusic: {fileID: 8300000, guid: be5c3a860ab404a209f5fb9a5ee25c0e, type: 3}
   RunMusic: {fileID: 8300000, guid: 240c4d326228b4b9c84977b97e2d5323, type: 3}
   JumpMusic: {fileID: 8300000, guid: 98e5708253dea41c4bf8a2e749202e00, type: 3}
-  ShootMusic: {fileID: 8300000, guid: 2e79c4cc1e5ee460db3a8557898f55f3, type: 3}
+  ShootMusic: {fileID: 8300000, guid: dc9f03c5340e44bf6a3f1ee638d71306, type: 3}
   RunningGame:
     screen: {fileID: 21300000, guid: bc9b8d366805f4ae292b6c0f0af76569, type: 3}
     timePerText: 5
