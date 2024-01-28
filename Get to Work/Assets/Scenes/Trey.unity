@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -158,6 +158,7 @@ MonoBehaviour:
   playerHealth: 0
   health: 0
   maxHealth: 3
+  isRoomActive: 0
   moveSpeed: 1.1
 --- !u!61 &96478222
 BoxCollider2D:
@@ -390,9 +391,8 @@ GameObject:
   m_Component:
   - component: {fileID: 121822347}
   - component: {fileID: 121822349}
-  - component: {fileID: 121822348}
   m_Layer: 0
-  m_Name: GUn (2)
+  m_Name: gunholster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,24 +413,6 @@ Transform:
   m_Father: {fileID: 691240545}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &121822348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121822346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5600a7798b2025148829f476764bfd53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawnUp: {fileID: 555326249}
-  bulletSpawnDown: {fileID: 1130436833}
-  bulletSpawnLeft: {fileID: 750342659}
-  bulletSpawnRight: {fileID: 226582831}
-  bulletPrefab: {fileID: 542120151208339923, guid: 855849416fe3f7943bb23c64d14935b2, type: 3}
-  bulletSpeed: 10
 --- !u!212 &121822349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -506,7 +488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226582830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.52, y: -0.49, z: 0}
+  m_LocalPosition: {x: 0.54, y: -0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 310337119}
@@ -631,9 +613,8 @@ GameObject:
   m_Component:
   - component: {fileID: 310337119}
   - component: {fileID: 310337121}
-  - component: {fileID: 310337120}
   m_Layer: 0
-  m_Name: GUn
+  m_Name: gunholster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,24 +635,6 @@ Transform:
   m_Father: {fileID: 691240545}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &310337120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310337118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5600a7798b2025148829f476764bfd53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawnUp: {fileID: 555326249}
-  bulletSpawnDown: {fileID: 1130436833}
-  bulletSpawnLeft: {fileID: 750342659}
-  bulletSpawnRight: {fileID: 226582831}
-  bulletPrefab: {fileID: 542120151208339923, guid: 855849416fe3f7943bb23c64d14935b2, type: 3}
-  bulletSpeed: 10
 --- !u!212 &310337121
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -888,6 +851,7 @@ MonoBehaviour:
   playerHealth: 0
   health: 0
   maxHealth: 3
+  isRoomActive: 0
   moveSpeed: 1.1
 --- !u!61 &476702994
 BoxCollider2D:
@@ -1100,6 +1064,7 @@ MonoBehaviour:
   playerHealth: 0
   health: 0
   maxHealth: 3
+  isRoomActive: 0
   moveSpeed: 1.1
 --- !u!61 &617812113
 BoxCollider2D:
@@ -1227,6 +1192,7 @@ MonoBehaviour:
   playerHealth: 0
   health: 0
   maxHealth: 3
+  isRoomActive: 0
   moveSpeed: 1.1
 --- !u!61 &627388871
 BoxCollider2D:
@@ -1442,6 +1408,7 @@ Transform:
   - {fileID: 2075635845}
   - {fileID: 121822347}
   - {fileID: 1470218111}
+  - {fileID: 1405085928}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1503,6 +1470,7 @@ GameObject:
   - component: {fileID: 698404541}
   - component: {fileID: 698404540}
   - component: {fileID: 698404539}
+  - component: {fileID: 698404542}
   m_Layer: 0
   m_Name: Room 1 Right Door
   m_TagString: Untagged
@@ -1562,6 +1530,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &698404542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698404538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5941cec0b6a83ed4cba777ae4bca2740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1730,7 @@ MonoBehaviour:
   playerHealth: 0
   health: 0
   maxHealth: 3
+  isRoomActive: 0
   moveSpeed: 1.1
 --- !u!61 &837355229
 BoxCollider2D:
@@ -2027,7 +2008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10.68}
+  m_LocalPosition: {x: 0, y: 1, z: -10.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2437,6 +2418,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1405085927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405085928}
+  - component: {fileID: 1405085929}
+  m_Layer: 1
+  m_Name: realgun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1405085928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405085927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 691240545}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405085929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405085927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5600a7798b2025148829f476764bfd53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnUp: {fileID: 555326249}
+  bulletSpawnDown: {fileID: 1130436833}
+  bulletSpawnLeft: {fileID: 750342659}
+  bulletSpawnRight: {fileID: 226582831}
+  bulletPrefab: {fileID: 542120151208339923, guid: 855849416fe3f7943bb23c64d14935b2, type: 3}
+  bulletSpeed: 10
 --- !u!1 &1470218110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,9 +2477,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1470218111}
   - component: {fileID: 1470218113}
-  - component: {fileID: 1470218112}
   m_Layer: 0
-  m_Name: GUn (3)
+  m_Name: gunholster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2470,24 +2499,6 @@ Transform:
   m_Father: {fileID: 691240545}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
---- !u!114 &1470218112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470218110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5600a7798b2025148829f476764bfd53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawnUp: {fileID: 555326249}
-  bulletSpawnDown: {fileID: 1130436833}
-  bulletSpawnLeft: {fileID: 750342659}
-  bulletSpawnRight: {fileID: 226582831}
-  bulletPrefab: {fileID: 542120151208339923, guid: 855849416fe3f7943bb23c64d14935b2, type: 3}
-  bulletSpeed: 10
 --- !u!212 &1470218113
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2986,6 +2997,7 @@ MonoBehaviour:
   playerHealth: 0
   health: 0
   maxHealth: 3
+  isRoomActive: 0
   moveSpeed: 1.1
 --- !u!61 &1896278226
 BoxCollider2D:
@@ -3088,9 +3100,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2075635845}
   - component: {fileID: 2075635847}
-  - component: {fileID: 2075635846}
   m_Layer: 0
-  m_Name: GUn (1)
+  m_Name: gunholster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3111,24 +3122,6 @@ Transform:
   m_Father: {fileID: 691240545}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &2075635846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075635844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5600a7798b2025148829f476764bfd53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawnUp: {fileID: 555326249}
-  bulletSpawnDown: {fileID: 1130436833}
-  bulletSpawnLeft: {fileID: 750342659}
-  bulletSpawnRight: {fileID: 226582831}
-  bulletPrefab: {fileID: 542120151208339923, guid: 855849416fe3f7943bb23c64d14935b2, type: 3}
-  bulletSpeed: 10
 --- !u!212 &2075635847
 SpriteRenderer:
   m_ObjectHideFlags: 0
