@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AlexCamera : MonoBehaviour
@@ -25,8 +26,16 @@ public class AlexCamera : MonoBehaviour
     int minActorSpawnCount = 1;
     int maxActorSpawnCount = 1;
 
+    // Text
+    public TMP_Text distanceText;
+
     void Update()
     {
+        // Update distance text
+        var t = System.TimeSpan.FromSeconds(GameAlwaysAlive.Instance.runningTime);
+        //distanceText.text = $"{($"{transform.position.y:D2}m")} till your destination!";
+        distanceText.text = $"Your destination is " + (500+transform.position.y).ToString("f1") + " away!";
+
         // Spawn thresholds
         if (transform.position.y < -threshold4)
         {
