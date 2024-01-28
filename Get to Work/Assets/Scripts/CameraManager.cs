@@ -38,14 +38,21 @@ public class CameraManager : MonoBehaviour
         }
 
     }
-    public void OnPlayerDoorCollision(TopDownDude player)
+    public void OnPlayerDoorCollision(TopDownDude player,Door door)
     {
         if (player != null)
         {
 
-            Debug.Log("I touched the door");
-            CameraManager.MoveCamera(camera, vantage2.transform);
-            CameraManager.MovePlayer(player, spawn2.transform);
+            Debug.Log($"I touched the {door.name}");
+            foreach (var d in doorToVantage)
+            {
+                if(d.door == door)
+                {
+                    CameraManager.MoveCamera(camera, d.vantage.transform);
+                    CameraManager.MovePlayer(player, d.spawn.transform);
+                }
+            }
+
         }
     }
     public static void MoveCamera(Camera c, Transform vantage)
